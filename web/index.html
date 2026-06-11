@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMKDOWN - Download MP4 & MP3</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <h1>🎬 CMKDOWN</h1>
+                <p>Download MP4 & MP3 from YouTube, Facebook & Instagram</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Tab Navigation -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="download">Download</button>
+                <button class="tab-btn" data-tab="history">History</button>
+            </div>
+
+            <!-- Download Tab -->
+            <div id="download" class="tab-content active">
+                <div class="form-container">
+                    <div class="form-group">
+                        <label for="urlInput">Paste URL</label>
+                        <input 
+                            type="text" 
+                            id="urlInput" 
+                            placeholder="YouTube, Facebook, or Instagram URL"
+                            class="url-input"
+                        >
+                        <small>Supported: YouTube.com, Facebook.com, Instagram.com</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select Format</label>
+                        <div class="format-options">
+                            <label class="radio-label">
+                                <input type="radio" name="format" value="mp4" checked>
+                                <span class="radio-custom"></span>
+                                📹 MP4 (Video)
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="format" value="mp3">
+                                <span class="radio-custom"></span>
+                                🎵 MP3 (Audio)
+                            </label>
+                        </div>
+                    </div>
+
+                    <button id="downloadBtn" class="btn-primary">Download</button>
+                </div>
+
+                <!-- Video Info Display -->
+                <div id="videoInfo" class="video-info hidden">
+                    <div class="video-card">
+                        <img id="thumbnail" src="" alt="Video thumbnail" class="thumbnail">
+                        <div class="video-details">
+                            <h3 id="videoTitle">Video Title</h3>
+                            <p id="videoSource">Source: YouTube</p>
+                            <p id="videoDuration">Duration: 00:00</p>
+                            <div class="progress-section">
+                                <div class="progress-bar">
+                                    <div id="progressFill" class="progress-fill"></div>
+                                </div>
+                                <p id="progressText">0%</p>
+                            </div>
+                            <p id="statusText" class="status-text">Ready to download</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Tab -->
+            <div id="history" class="tab-content">
+                <div class="history-container">
+                    <h2>Download History</h2>
+                    <div id="historyList" class="history-list">
+                        <p class="empty-message">No downloads yet. Start downloading to see history.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2024 CMKDOWN - Free Video & Audio Downloader</p>
+        <p>Note: This is a demo version. For full functionality, download the Android app.</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
