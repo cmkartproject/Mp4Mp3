@@ -4,27 +4,39 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="#F5F5F5">
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ic_download"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="Download icon" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Downloading..."
-        android:textSize="18sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:layout_marginBottom="24dp" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="4dp"
         android:layout_marginBottom="24dp"
-        style="?android:attr/progressBarStyleHorizontal" />
+        style="?android:attr/progressBarStyleHorizontal"
+        android:progress="0"
+        android:max="100" />
 
     <TextView
         android:id="@+id/statusText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Preparing download..."
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:gravity="center" />
 
 </LinearLayout>

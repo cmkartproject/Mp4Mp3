@@ -1,6 +1,7 @@
 package com.cmkdown;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -13,6 +14,7 @@ import com.cmkdown.service.DownloadService;
 public class DownloadActivity extends AppCompatActivity {
 
     private String url;
+    private String format;
     private ProgressBar progressBar;
     private TextView statusText;
 
@@ -25,18 +27,28 @@ public class DownloadActivity extends AppCompatActivity {
         statusText = findViewById(R.id.statusText);
 
         url = getIntent().getStringExtra("url");
+        format = getIntent().getStringExtra("format");
 
-        if (url != null) {
+        if (url != null && format != null) {
             startDownload();
+        } else {
+            Toast.makeText(this, "Error: Missing URL or format", Toast.LENGTH_SHORT).show();
+            finish();
         }
     }
 
     private void startDownload() {
         Intent serviceIntent = new Intent(this, DownloadService.class);
         serviceIntent.putExtra("url", url);
-        startService(serviceIntent);
+        serviceIntent.putExtra("format", format);
+        
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(serviceIntent);
+        } else {
+            startService(serviceIntent);
+        }
 
-        statusText.setText("Starting download...");
+        statusText.setText("Starting " + format.toUpperCase() + " download...");
         progressBar.setIndeterminate(true);
     }
 }
