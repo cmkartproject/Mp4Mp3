@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CMKDOWN</string>
+    <string name="download_button">Download</string>
+    <string name="paste_url">Paste URL</string>
+    <string name="downloading">Downloading...</string>
+    <string name="download_complete">Download Complete</string>
+    <string name="error">Error occurred</string>
+</resources>
